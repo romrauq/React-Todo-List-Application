@@ -1,15 +1,30 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
-import Header from "./components/Header";
-import Body from "./components/Content";
+import Todos from "./components/Todos";
 
-function App() {
-	return (
-		<div className="App">
-			<Header />
-			<Body />
-		</div>
-	);
+class App extends Component {
+	state = {
+		todos: [
+			{
+				id: 1,
+				title: "Learn React",
+				completed: false,
+			},
+			{
+				id: 2,
+				title: "Learn MySQL",
+				completed: false,
+			},
+			{
+				id: 1,
+				title: "Learn Javascript",
+				completed: true,
+			},
+		],
+	};
+	render() {
+		return <Todos todos={this.state.todos} />;
+	}
 }
 
 export default App;
