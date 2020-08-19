@@ -2,17 +2,27 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 class TodoItem extends Component {
-	state = {};
+	getStyle = () => {
+		return {
+			textDecoration: this.props.todo.completed ? "line-through" : "none",
+			fontSize: "2rem",
+			padding: "5px",
+			marginBottom: "10px",
+			backgroundColor: "wheat",
+			borderRadius: "5px",
+		};
+	};
+
 	render() {
 		return (
-			<div>
-				<h2>{this.props.todo.title}</h2>
+			<div style={this.getStyle()}>
+				<p>{this.props.todo.title}</p>
 			</div>
 		);
 	}
 }
 
-// Setting TodoItems' PropTypes:
+// Setting TodoItems' PropType:
 TodoItem.propTypes = {
 	todo: PropTypes.object.isRequired,
 };
