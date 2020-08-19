@@ -7,23 +7,27 @@ class App extends Component {
 		todos: [
 			{
 				id: 1,
+				title: "Learn Javascript",
+				completed: true,
+			},
+			{
+				id: 2,
 				title: "Learn React",
 				completed: false,
 			},
 			{
-				id: 2,
+				id: 3,
 				title: "Learn MySQL",
 				completed: false,
-			},
-			{
-				id: 3,
-				title: "Learn Javascript",
-				completed: true,
 			},
 		],
 	};
 	render() {
-		return <Todos todos={this.state.todos} />;
+		return (
+			<div className="main-component">
+				<Todos todos={this.state.todos} />
+			</div>
+		);
 	}
 }
 
