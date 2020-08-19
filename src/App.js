@@ -22,10 +22,15 @@ class App extends Component {
 			},
 		],
 	};
+
+	markComplete = (e) => {
+		console.log("Linked method success");
+	};
+
 	render() {
 		return (
 			<div className="main-component">
-				<Todos todos={this.state.todos} />
+				<Todos todos={this.state.todos} markComplete={this.markComplete} />
 			</div>
 		);
 	}
