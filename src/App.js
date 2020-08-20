@@ -23,8 +23,16 @@ class App extends Component {
 		],
 	};
 
-	markComplete = (e) => {
-		console.log("Linked method success");
+	// Function to toggle "state.todo.complete" objects' boolean value:
+	markComplete = (id) => {
+		this.setState({
+			todos: this.state.todos.map((todo) => {
+				if (todo.id == id) {
+					todo.completed = !todo.completed;
+				}
+				return todo;
+			}),
+		});
 	};
 
 	render() {
