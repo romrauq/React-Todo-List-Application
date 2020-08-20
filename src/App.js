@@ -8,7 +8,7 @@ class App extends Component {
 			{
 				id: 1,
 				title: "Learn Javascript",
-				completed: true,
+				completed: false,
 			},
 			{
 				id: 2,
