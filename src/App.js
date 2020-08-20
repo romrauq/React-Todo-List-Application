@@ -23,11 +23,11 @@ class App extends Component {
 		],
 	};
 
-	// Function to toggle "state.todo.complete" objects' boolean value:
+	// Toggle "state.todo.complete" boolean value:
 	markComplete = (id) => {
 		this.setState({
 			todos: this.state.todos.map((todo) => {
-				if (todo.id == id) {
+				if (todo.id === id) {
 					todo.completed = !todo.completed;
 				}
 				return todo;
@@ -35,10 +35,21 @@ class App extends Component {
 		});
 	};
 
+	//Delete todo item:
+	delTodo = (id) => {
+		this.setState({
+			todos: [...this.state.todos.filter((todo) => todo.id !== id)],
+		});
+	};
+
 	render() {
 		return (
 			<div className="main-component">
-				<Todos todos={this.state.todos} markComplete={this.markComplete} />
+				<Todos
+					todos={this.state.todos}
+					markComplete={this.markComplete}
+					delTodo={this.delTodo}
+				/>
 			</div>
 		);
 	}
