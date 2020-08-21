@@ -1,10 +1,23 @@
 import React, { Component } from "react";
 
 class AddTodo extends Component {
-	state = {};
+	state = {
+		title: "",
+	};
+
+	// Get value from input field and update AddTodo's state:
+	onChange = (e) => this.setState({ [e.target.name]: e.target.value });
+
+	// onSubmit funtion:
+	onSubmit = (e) => {
+		e.preventDefault();
+		this.props.addTodo(this.state.title);
+		this.setState({ title: "" });
+	};
+
 	render() {
 		return (
-			<form action="">
+			<form onSubmit={this.onSubmit}>
 				<div
 					style={{
 						display: "flex",
@@ -17,6 +30,8 @@ class AddTodo extends Component {
 						name="title"
 						placeholder="Add Todo Item"
 						style={{ flex: "10", padding: "5px" }}
+						value={this.state.title}
+						onChange={this.onChange}
 					/>
 					<input
 						type="submit"
