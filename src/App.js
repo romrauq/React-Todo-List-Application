@@ -9,17 +9,17 @@ class App extends Component {
 	state = {
 		todos: [
 			{
-				id: uuid.v4(),
+				id: Math.random(),
 				title: "Learn Javascript",
 				completed: false,
 			},
 			{
-				id: uuid.v4(),
+				id: Math.random(),
 				title: "Learn React",
 				completed: false,
 			},
 			{
-				id: uuid.v4(),
+				id: Math.random(),
 				title: "Learn MySQL",
 				completed: false,
 			},
@@ -48,7 +48,7 @@ class App extends Component {
 	// Add Todo:
 	addTodo = (title) => {
 		const newTodo = {
-			id: uuid.v4(),
+			id: this.state.todos.length * Math.random(),
 			title,
 			completed: false,
 		};
